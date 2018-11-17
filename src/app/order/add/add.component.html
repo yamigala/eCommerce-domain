@@ -1,0 +1,17 @@
+
+<!-- template form for add component of orderList -->
+
+<h3> POST ORDER</h3>
+<form  [formGroup]="orderDetails" (ngSubmit)="onSubmit(orderDetails.value)" novalidate>
+  <div>
+    <input type="text"  id="ItemName" placeholder="Enter Item Name" formControlName="itemName">
+    
+<br>
+    <input type="text" class="form-control" id="Name" placeholder="Enter your Name" formControlName="name"><br>
+    <input type="text" class="form-control" id="noOfItem" placeholder="Enter No if Items" formControlName="noOfItem"><br>
+    <input type="text" class="form-control" id="price" placeholder="Enter Item-price" formControlName="price"><br>
+    <input type="text" class="form-control" id="address" placeholder="Enter Your Address" formControlName="address"><br>
+    <input type="text" class="form-control" id="phoneNo" placeholder="Enter Your Contact No" formControlName="phoneNo"><br>
+    <button type="submit" >submit</button>
+  </div>
+</form>

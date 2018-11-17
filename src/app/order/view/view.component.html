@@ -1,0 +1,9 @@
+<!-- binding data in json formal with id -->
+<div *ngFor="let data of orderList">
+  <p>{{ data | json }}</p>
+  <p>{{ data.id }}</p>
+  <!-- delete button -->
+  <button (click)="delete(data.id)">delete</button>
+  <!-- edit button -->
+  <button routerLink="/order/edit/{{data.id}}">edit</button>
+</div>
