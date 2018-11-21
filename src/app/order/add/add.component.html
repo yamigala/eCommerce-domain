@@ -4,14 +4,44 @@
 <h3> POST ORDER</h3>
 <form  [formGroup]="orderDetails" (ngSubmit)="onSubmit(orderDetails.value)" novalidate>
   <div>
-    <input type="text"  id="ItemName" placeholder="Enter Item Name" formControlName="itemName">
-    
+    <input type="text"  id="itemName" placeholder="Enter Item Name" formControlName="itemName">
+    <div *ngIf="(orderDetails.get('itemName').touched || orderDetails.get('itemName').dirty ) && orderDetails.get('itemName').errors" >
+    <div *ngIf="orderDetails.get('itemName').errors.required">
+      Required Item Name cannot be left blank.
+    </div>
+  </div>
 <br>
-    <input type="text" class="form-control" id="Name" placeholder="Enter your Name" formControlName="name"><br>
-    <input type="text" class="form-control" id="noOfItem" placeholder="Enter No if Items" formControlName="noOfItem"><br>
-    <input type="text" class="form-control" id="price" placeholder="Enter Item-price" formControlName="price"><br>
-    <input type="text" class="form-control" id="address" placeholder="Enter Your Address" formControlName="address"><br>
-    <input type="text" class="form-control" id="phoneNo" placeholder="Enter Your Contact No" formControlName="phoneNo"><br>
-    <button type="submit" >submit</button>
+    <input type="text" class="form-control" id="name" placeholder="Enter your Name" formControlName="name">
+    <div *ngIf="(orderDetails.get('name').touched || orderDetails.get('name').dirty ) && orderDetails.get('name').errors" >
+    <div *ngIf="orderDetails.get('name').errors.minlength">
+      Requried minimum 5 character.
+    </div>
+  </div>
+    <br>
+    <input type="text" class="form-control" id="noOfItem" placeholder="Enter No if Items" formControlName="noOfItem">
+    <br>
+    <input type="text" class="form-control" id="price" placeholder="Enter Item-price" formControlName="price">
+    <div *ngIf = "(orderDetails.get('price').touched || orderDetails.get('price').dirty) && orderDetails.get('price').errors">
+    <div *ngIf = "orderDetails.get('price').errors.pattern">
+      Required only numbers.
+    </div>
+  </div>
+    <br>
+    <input type="text" class="form-control" id="address" placeholder="Enter Your Address" formControlName="address">
+    <div *ngIf = "(orderDetails.get('address').touched || orderDetails.get('address').dirty) && orderDetails.get('address').errors">
+    <div *ngIf = "orderDetails.get('address').errors.pattern">
+      Required only character.
+  </div>
+  </div>
+  
+    <br>
+    <input type="text" class="form-control" id="phoneNo" placeholder="Enter Your Contact No" formControlName="phoneNo">
+    <div *ngIf="(orderDetails.get('phoneNo').touched || orderDetails.get('phoneNo').dirty ) && orderDetails.get('phoneNo').errors" >
+      <div *ngIf="orderDetails.get('phoneNo').errors.maxlength"> 
+        Requried maximum 10 digit.
+      </div>
+    </div>
+    <br>
+    <button type="submit" >submit</button>    
   </div>
 </form>
